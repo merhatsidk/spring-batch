@@ -9,8 +9,16 @@ services:
 
     restart: unless-stopped
     environment:
-      - spring.datasource.url=jdbc:mysql://host.docker.internal:3306/cs590
+#      - spring.datasource.url=jdbc:mysql://host.docker.internal:3306/cs590
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=speedo2942
       - SPRING_SERVER_PORT=8099
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:8
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: cs590
+      MYSQL_ROOT_PASSWORD: speedo2942
 
