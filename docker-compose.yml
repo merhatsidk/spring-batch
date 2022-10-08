@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+  springBatch:
+    image: my-spring-batch
+    build: ./
+    ports:
+      - '9090:8099'
+
+    restart: unless-stopped
+    environment:
+      - spring.datasource.url=jdbc:mysql://host.docker.internal:3306/cs590
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=speedo2942
+      - SPRING_SERVER_PORT=8099
+
